@@ -15,7 +15,7 @@ void preencherDados(Dados pessoas[]){
     int idade;
 //  ----------------------------------------------------------
                                              // PREENCHER PESO
-    for(int cont =0 ; cont<50; cont++){
+    for(int cont =0 ; cont<500; cont++){
         peso = 1+(rand() % 100);
         pessoas[cont].peso = peso;
 
@@ -23,7 +23,7 @@ void preencherDados(Dados pessoas[]){
 
 //  ----------------------------------------------------------
                                            // PREENCHER ALTURA
-    for(int cont =0 ; cont<50; cont++){
+    for(int cont =0 ; cont<500; cont++){
         altura = (rand() % 101);
         altura = 1 + (altura / 100);
         pessoas[cont].altura = altura;
@@ -31,7 +31,7 @@ void preencherDados(Dados pessoas[]){
 
 //  ----------------------------------------------------------
                                             // PREENCHER IDADE
-    for(int cont =0 ; cont<50; cont++){
+    for(int cont =0 ; cont<500; cont++){
         idade = 1+(rand() % 70);
         pessoas[cont].idade = idade;
     }
