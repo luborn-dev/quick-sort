@@ -35,12 +35,6 @@ void preencherDados(Dados pessoas[]){
         idade = 1+(rand() % 70);
         pessoas[cont].idade = idade;
     }
-
-    printf("NA FUNÇÃO---------\n");
-    printf("Pessoa 4 altura -> %.2f\n", pessoas[3].altura);
-    printf("Pessoa 4 peso -> %.2f\n",   pessoas[3].peso);
-    printf("Pessoa 4 idade -> %d\n",   pessoas[3].idade);
-
 }
 
 int main()
@@ -49,10 +43,6 @@ int main()
     srand((unsigned)time(NULL));
     Dados pessoas[500];
     preencherDados(pessoas);
-    printf("NA MAIN---------");
-    printf("Pessoa 4 altura -> %.2f\n", pessoas[3].altura);
-    printf("Pessoa 4 peso -> %.2f\n",   pessoas[3].peso);
-    printf("Pessoa 4 idade -> %d\n",   pessoas[3].idade);
 
     return 0;
 }
