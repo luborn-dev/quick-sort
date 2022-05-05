@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1651761191 source:c:\users\lucas\desktop\workspace\faculdade\3º semestre\erd ii\atividade avaliativa 3\atividadeavaliativa03\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<locale.h>
+
