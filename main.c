@@ -3,7 +3,7 @@
  *
  *       Filename:  AtividadeAvaliativa03.cpp
  *
- *    Description:  Trabalho realizado na matéria de ESTRUTURA E RECUPERAÇÃO DE DADOS II
+ *    Description:  Trabalho realizado na matï¿½ria de ESTRUTURA E RECUPERAï¿½ï¿½O DE DADOS II
  *                  orientado pela professora Lucia Filomena de Almeida Guimaraes
  *
  *        Version:  1.0
@@ -11,11 +11,11 @@
  *       Compiler:  gcc
  *
  *        Authors:  Lucas Borges Nascimento       (luborn.dev@gmail.com)
- *                  Ruan Tineu Custódio           (ruantineu@gmail.com)
+ *                  Ruan Tineu Custï¿½dio           (ruantineu@gmail.com)
  *                  Maria Luiza Iuras Pressler    (malupressler@gmail.com)
- *                  Verônica Oliveira Brito       (veronicabrito63863836@gmail.com)
+ *                  Verï¿½nica Oliveira Brito       (veronicabrito63863836@gmail.com)
  *
- *   Organization:  Sistemas de Informação - PUC Campinas
+ *   Organization:  Sistemas de Informaï¿½ï¿½o - PUC Campinas
  *
  * ============================================================================
  */
@@ -24,7 +24,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
-#define TAM 5 // <--- Alterar conforme necessidade de execução do programa.
+#define TAM 5 // <--- Alterar conforme necessidade de execuï¿½ï¿½o do programa.
 
 typedef struct Dados{
     float peso;
@@ -75,8 +75,45 @@ void bubbleSort(Dados pessoas[]){
     }
 }
 
-void quickSort(Dados pessoas[]){
-    /// @todo (Malu/Veronica#9#): Desenvolver essa função até domingo
+/*void quickSort(Dados pessoas[]){
+    /// @todo (Malu/Veronica#9#): Desenvolver essa funï¿½ï¿½o atï¿½ domingo
+}*/
+
+void trocaDeElementos(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+
+int particao(Dados pessoas[], int inferior, int supeior) {
+
+  Dados pivo = pessoas[supeior];
+  int i = (inferior - 1);
+
+  
+  while( inferior < supeior) {
+    if (&pessoas[inferior] <= &pivo) {
+        
+      i++;
+      
+      trocaDeElementos(&pessoas[i], &pessoas[inferior]);
+    }
+    inferior++;
+  }
+
+  trocaDeElementos(&pessoas[i + 1], &pessoas[supeior]);
+  
+  return (i + 1);
+}
+
+void quickSort(Dados pessoas[], int ladoInferior, int ladoSuperior) {
+  if (ladoInferior < ladoSuperior) {
+    
+    int pi = particao(pessoas, ladoInferior, ladoSuperior);
+    
+    quickSort(pessoas, ladoInferior, pi - 1);
+    quickSort(pessoas, pi + 1, ladoSuperior);
+  }
 }
 
 int main()
@@ -88,7 +125,7 @@ int main()
     Dados pessoas[TAM];
 
     preencherDados(&pessoas);
-    printf("-------SEM ORDENAÇÃO-------\n\nLembrando que o indice da ordenação é a ALTURA em ordem DESCRESCENTE\n\n");
+    printf("-------SEM ORDENAï¿½ï¿½O-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem DESCRESCENTE\n\n");
     for (count = 0; count < TAM; count++){
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
         printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
@@ -97,7 +134,18 @@ int main()
 
     bubbleSort(&pessoas);
 
-    printf("-------COM BUBBLE SORT-------\n\nLembrando que o indice da ordenação é a ALTURA em ordem DESCRESCENTE\n\n");
+    printf("-------COM BUBBLE SORT-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem DESCRESCENTE\n\n");
+
+    for (count = 0; count < TAM; count++){
+        printf("pos %d - idade: %d\n", count, pessoas[count].idade );
+        printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
+        printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
+    }
+
+    printf("-------COM QUICK SORT-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem DESCRESCENTE\n\n");
+
+    quickSort(&pessoas, 0, TAM-1);  
+    printf("\n The sorted array is: \n");  
 
     for (count = 0; count < TAM; count++){
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
