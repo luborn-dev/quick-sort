@@ -1,9 +1,13 @@
 # depslib dependency file v1.0
-<<<<<<< HEAD
-1652207538 source:c:\users\lucas\desktop\workspace\faculdade\3º semestre\erd ii\atividade avaliativa 3\atividadeavaliativa03\main.c
-=======
-1651777209 source:c:\users\lucas\desktop\workspace\faculdade\3º semestre\erd ii\atividade avaliativa 3\atividadeavaliativa03\main.c
->>>>>>> origin/main
+82 <<<<<<< HEAD
+
+1652210822 source:c:\users\lucas\desktop\workspace\faculdade\3º semestre\erd ii\atividade avaliativa 3\atividadeavaliativa03\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<locale.h>
+
+1651777209 gin/main
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
