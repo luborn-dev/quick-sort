@@ -3,7 +3,11 @@
  *
  *       Filename:  AtividadeAvaliativa03.cpp
  *
+<<<<<<< HEAD
  *    Description:  Trabalho realizado na matéria de ESTRUTURA E RECUPERAÇÃO DE DADOS II
+=======
+ *    Description:  Trabalho realizado na matï¿½ria de ESTRUTURA E RECUPERAï¿½ï¿½O DE DADOS II
+>>>>>>> origin/main
  *                  orientado pela professora Lucia Filomena de Almeida Guimaraes
  *
  *        Version:  1.0
@@ -11,11 +15,19 @@
  *       Compiler:  gcc
  *
  *        Authors:  Lucas Borges Nascimento       (luborn.dev@gmail.com)
+<<<<<<< HEAD
  *                  Ruan Tineu Custódio           (ruantineu@gmail.com)
  *                  Maria Luiza Iuras Pressler    (malupressler@gmail.com)
  *                  Verônica Oliveira Brito       (veronicabrito63863836@gmail.com)
  *
  *   Organization:  Sistemas de Informação - PUC Campinas
+=======
+ *                  Ruan Tineu Custï¿½dio           (ruantineu@gmail.com)
+ *                  Maria Luiza Iuras Pressler    (malupressler@gmail.com)
+ *                  Verï¿½nica Oliveira Brito       (veronicabrito63863836@gmail.com)
+ *
+ *   Organization:  Sistemas de Informaï¿½ï¿½o - PUC Campinas
+>>>>>>> origin/main
  *
  * ============================================================================
  */
@@ -24,7 +36,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <locale.h>
+<<<<<<< HEAD
 #define TAM 5 // <--- Alterar conforme necessidade de execução do programa.
+=======
+#define TAM 5 // <--- Alterar conforme necessidade de execuï¿½ï¿½o do programa.
+>>>>>>> origin/main
 
 typedef struct Dados{
     float peso;
@@ -75,6 +91,7 @@ void bubbleSort(Dados pessoas[]){
     }
 }
 
+<<<<<<< HEAD
 int particao (Dados pessoa[], int inferior, int superior)
 {
     float pivo = pessoa[superior].altura;
@@ -108,6 +125,48 @@ void quickSort(Dados pessoas[], int LI, int LS) // Seguindo o modelo do pseudoco
         quickSort(pessoas, p + 1, LS);
     }
 }
+=======
+/*void quickSort(Dados pessoas[]){
+    /// @todo (Malu/Veronica#9#): Desenvolver essa funï¿½ï¿½o atï¿½ domingo
+}*/
+
+int particao (Dados pessoa[], int inferior, int superior)  
+{  
+    float pivo = pessoa[superior].altura; 
+    int i = (inferior - 1);  
+
+    while (inferior <= superior)  
+    {  
+        if (pessoa[inferior].altura < pivo)  
+        {  
+            i++;  
+            float aux = pessoa[i].altura;  
+            pessoa[i].altura = pessoa[inferior].altura;  
+            pessoa[inferior].altura = aux;  
+        }  
+        inferior++;
+    }  
+    //troca de elementos
+    float aux = pessoa[i+1].altura;  
+    pessoa[i+1].altura = pessoa[superior].altura;  
+    pessoa[superior].altura = aux;  
+    return (i + 1);  
+}  
+  
+
+void quickSort(Dados pessoas[], int LI, int LS) // seguindo o modelo do pseudocodigo com nomes parecidos
+{  
+    if (LI < LS)  
+    {  
+        int p = particao(pessoas, LI, LS); 
+        quickSort(pessoas, LI, p - 1);  
+        quickSort(pessoas, p + 1, LS);  
+    }  
+}  
+  
+
+
+>>>>>>> origin/main
 
 int main()
 {
@@ -118,7 +177,11 @@ int main()
     Dados pessoas[TAM];
 
     preencherDados(&pessoas);
+<<<<<<< HEAD
     printf("-------SEM ORDENAÇÃO-------\n\nLembrando que o indice da ordenação é a ALTURA em ordem DESCRESCENTE\n\n");
+=======
+    printf("-------SEM ORDENAï¿½ï¿½O-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem DESCRESCENTE\n\n");
+>>>>>>> origin/main
     for (count = 0; count < TAM; count++){
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
         printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
@@ -127,7 +190,11 @@ int main()
 
     /*bubbleSort(&pessoas);
 
+<<<<<<< HEAD
     printf("-------COM BUBBLE SORT-------\n\nLembrando que o indice da ordenação é a ALTURA em ordem DESCRESCENTE\n\n");
+=======
+    printf("-------COM BUBBLE SORT-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem DESCRESCENTE\n\n");
+>>>>>>> origin/main
 
     for (count = 0; count < TAM; count++){
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
@@ -135,6 +202,7 @@ int main()
         printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
     }*/
 
+<<<<<<< HEAD
     printf("-------COM QUICK SORT-------\n\nLembrando que o indice da ordenação é a ALTURA em ordem DECRESCENTE\n\n");
 
     quickSort(&pessoas, 0, TAM-1);
@@ -142,6 +210,17 @@ int main()
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
         printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
         printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
+=======
+    printf("-------COM QUICK SORT-------\n\nLembrando que o indice da ordenaï¿½ï¿½o ï¿½ a ALTURA em ordem CRESCENTE\n\n");
+
+    quickSort(&pessoas, 0, TAM-1);  
+    printf("\n The sorted array is: \n");  
+
+    for (count = 0; count < TAM; count++){
+       // printf("pos %d - idade: %d\n", count, pessoas[count].idade );
+        printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
+        //printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
+>>>>>>> origin/main
     }
 
     return 0;
