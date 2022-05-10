@@ -79,42 +79,42 @@ void bubbleSort(Dados pessoas[]){
     /// @todo (Malu/Veronica#9#): Desenvolver essa fun��o at� domingo
 }*/
 
-void trocaDeElementos(int *a, int *b) {
-  int t = *a;
-  *a = *b;
-  *b = t;
-}
+int particao (Dados pessoa[], int inferior, int superior)  
+{  
+    float pivo = pessoa[superior].altura; 
+    int i = (inferior - 1);  
 
-int particao(Dados pessoas[], int inferior, int supeior) {
-
-  Dados pivo = pessoas[supeior];
-  int i = (inferior - 1);
-
+    while (inferior <= superior)  
+    {  
+        if (pessoa[inferior].altura < pivo)  
+        {  
+            i++;  
+            float aux = pessoa[i].altura;  
+            pessoa[i].altura = pessoa[inferior].altura;  
+            pessoa[inferior].altura = aux;  
+        }  
+        inferior++;
+    }  
+    //troca de elementos
+    float aux = pessoa[i+1].altura;  
+    pessoa[i+1].altura = pessoa[superior].altura;  
+    pessoa[superior].altura = aux;  
+    return (i + 1);  
+}  
   
-  while( inferior < supeior) {
-    if (&pessoas[inferior] <= &pivo) {
-        
-      i++;
-      
-      trocaDeElementos(&pessoas[i], &pessoas[inferior]);
-    }
-    inferior++;
-  }
 
-  trocaDeElementos(&pessoas[i + 1], &pessoas[supeior]);
+void quickSort(Dados pessoas[], int LI, int LS) // seguindo o modelo do pseudocodigo com nomes parecidos
+{  
+    if (LI < LS)  
+    {  
+        int p = particao(pessoas, LI, LS); 
+        quickSort(pessoas, LI, p - 1);  
+        quickSort(pessoas, p + 1, LS);  
+    }  
+}  
   
-  return (i + 1);
-}
 
-void quickSort(Dados pessoas[], int ladoInferior, int ladoSuperior) {
-  if (ladoInferior < ladoSuperior) {
-    
-    int pi = particao(pessoas, ladoInferior, ladoSuperior);
-    
-    quickSort(pessoas, ladoInferior, pi - 1);
-    quickSort(pessoas, pi + 1, ladoSuperior);
-  }
-}
+
 
 int main()
 {
@@ -132,7 +132,7 @@ int main()
         printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
     }
 
-    bubbleSort(&pessoas);
+    /*bubbleSort(&pessoas);
 
     printf("-------COM BUBBLE SORT-------\n\nLembrando que o indice da ordena��o � a ALTURA em ordem DESCRESCENTE\n\n");
 
@@ -140,17 +140,17 @@ int main()
         printf("pos %d - idade: %d\n", count, pessoas[count].idade );
         printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
         printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
-    }
+    }*/
 
-    printf("-------COM QUICK SORT-------\n\nLembrando que o indice da ordena��o � a ALTURA em ordem DESCRESCENTE\n\n");
+    printf("-------COM QUICK SORT-------\n\nLembrando que o indice da ordena��o � a ALTURA em ordem CRESCENTE\n\n");
 
     quickSort(&pessoas, 0, TAM-1);  
     printf("\n The sorted array is: \n");  
 
     for (count = 0; count < TAM; count++){
-        printf("pos %d - idade: %d\n", count, pessoas[count].idade );
+       // printf("pos %d - idade: %d\n", count, pessoas[count].idade );
         printf("pos %d - altura: %.2fmts\n",count, pessoas[count].altura);
-        printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
+        //printf("pos %d - peso: %.2fmts\n\n",count, pessoas[count].peso);
     }
 
     return 0;
